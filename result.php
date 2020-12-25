@@ -22,7 +22,7 @@
 
 
   // デバッグ用の日付
-  $result_date = date("Y-m-d", strtotime("0 day"));
+  $result_date = date("Y-m-d", strtotime("-1 day"));
 
 
 
@@ -176,7 +176,7 @@
       $score = 3;
       $comment = 13;
     // 硬い便
-    } else if($shape == 7) {
+    } else if($shape == 2) {
       $score = 2;
       $comment = 18;
     // 泥状便
