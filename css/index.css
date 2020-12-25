@@ -97,21 +97,21 @@ header {
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0);
   text-align: center;
-  /* color: #fff; */
-  color: black;
-  /* background-color: #eb6100;
-  border-bottom: 5px solid #b84c00; */
-  background-color: #ffffff;
-  border-bottom: 5px solid #a0a0a0c0;
+  color: #fff;
+  /* color: black; */
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
+  /* background-color: #ffffff;
+  border-bottom: 5px solid #a0a0a0c0; */
 }
 .button:active {
   margin-top: 28px;
-  /* color: #fff; */
-  color: black;
-  /* background: #f56500;
-  border-bottom: 2px solid #b84c00; */
-  background: #f7f7f7ce;
-  border-bottom: 2px solid #646464;
+  color: #fff;
+  /* color: black; */
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+  /* background: #f7f7f7ce;
+  border-bottom: 2px solid #646464; */
 }
 .form_text {
   margin: 2px;
@@ -430,13 +430,12 @@ header {
 
 /* カレンダーの下のボタンたち */
 .calendar_bottom_buttons {
-  padding-right: 50px;
   display: flex;
   justify-content: center;
 }
 /* ウンチログボタン */
 .calendar_bottom_buttons > a {
-  margin-left: 50px;
+  margin: 25px;
 }
 
 /* -------------------- キャラクター作成ページ -------------------- */
@@ -657,7 +656,6 @@ header {
   background-color: #ffffff;
 }
 
-
 /* 量の選択肢 */
 /*量のフレームのスタイル*/
 .amounts {
@@ -667,18 +665,25 @@ header {
 }
 /*量選択肢のスタイル*/
 .amount_content {
-  margin: 5px 2px;
-  padding: 2%;
-  border-radius: 50%;
+  width: 300px;
+  margin-bottom: 10px;
+  padding: 12px 24px;
   display: inline-block;
+  cursor: pointer;
+  border: solid 0.5px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  color: black;
+  background-color: white;
 }
 .amount_content:hover {
   opacity: 0.75;
 }
 /*選択されている量のスタイルを変える*/
 .amounts input:checked + .amount_content {
-  filter: drop-shadow(5px 5px 5px #aaa);
-  font-size: 24px;
+  filter: drop-shadow(3px 3px 3px #aaa);
+  font-size: 20px;
 }
 
 
@@ -718,15 +723,26 @@ header {
 }
 /* ラベルのスタイル */
 .selecters label {
-  margin-right: 30px;
+  width: 150px;
+  margin: 25px 0;
+  padding: 12px 24px;
+  display: inline-block;
+  cursor: pointer;
+  border: solid 0.5px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: center;
+  color: #fff;
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
 }
 /* 選択されているラベルのスタイルを変更 */
 .selecters input:checked + label {
-  font-size: 20px;
-  color: #29d7e7;
-  filter: drop-shadow(3px 3px 3px #aaa);
+  margin-top: 28px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
 }
-
 
 
 

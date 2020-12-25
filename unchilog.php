@@ -88,8 +88,10 @@
       <!-- 下記よりグラフの表示領域 -->
       <canvas id="line-chart" width="5" height="1"></canvas>
       <form action="unchilog.php" method="post" class="selecters">
-        <input type="radio" name="selecter" id="one_week" checked="checked" onclick="log(7);"><label for="one_week">１週間</label>
-        <input type="radio" name="selecter" id="one_month" onclick="log(30);"><label for="one_month">１ヶ月</label>
+        <input type="radio" name="selecter" id="one_week" checked="checked" onclick="log(7);">
+        <label for="one_week">１週間</label>
+        <input type="radio" name="selecter" id="one_month" onclick="log(30);">
+        <label for="one_month">１ヶ月</label>
       </form>
     </div>
   </div>
