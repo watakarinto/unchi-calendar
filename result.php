@@ -58,183 +58,268 @@
   }
 
 
+
+
+  
   // 評価の計算
-  // 大人の評価
-  // 茶色
-  if($color == 2) {
-    // 普通便
-    if($shape == 4) {
-      if($amount == 2) {
-        $score = 4;
-        $comment = 1;
-      } else {
+  if($age > 0) {
+    $score_text = "score";
+    // 大人の評価
+    // 茶色
+    if($color == 2) {
+      // 普通便
+      if($shape == 4) {
+        if($amount == 2) {
+          $score = 4;
+          $comment = 1;
+        } else {
+          $score = 3;
+          $comment = 2;
+        }
+      // やや硬い便
+      } else if($shape == 3) {
         $score = 3;
-        $comment = 2;
+        $comment = 3;
+      // やや柔らかい便
+      } else if($shape == 5) {
+        $score = 3;
+        $comment = 4;
+      // 硬い便
+      } else if($shape == 2) {
+        $score = 2;
+        $comment = 17;
+      // 泥状便
+      } else if($shape == 6) {
+        $score = 2;
+        $comment = 20;
+      // コロコロ便
+      } else if($shape == 1) {
+        $score = 1;
+        $comment = 23;
+      // 水様便
+      } else if($shape == 7) {
+        $score = 1;
+        $comment = 26;
       }
-    // やや硬い便
-    } else if($shape == 3) {
-      $score = 3;
-      $comment = 3;
-    // やや柔らかい便
-    } else if($shape == 5) {
-      $score = 3;
-      $comment = 4;
-    // 硬い便
-    } else if($shape == 2) {
-      $score = 2;
-      $comment = 17;
-    // 泥状便
-    } else if($shape == 6) {
-      $score = 2;
-      $comment = 20;
-    // コロコロ便
-    } else if($shape == 1) {
-      $score = 1;
-      $comment = 23;
-    // 水様便
-    } else if($shape == 7) {
-      $score = 1;
-      $comment = 26;
+    // 黄褐色
+    } else if($color == 1) {
+      // 普通便
+      if($shape == 4) {
+        $score = 3;
+        $comment = 5;
+      // やや硬い便
+      } else if($shape == 3) {
+        $score = 3;
+        $comment = 6;
+      // やや柔らかい便
+      } else if($shape == 5) {
+        $score = 3;
+        $comment = 7;
+      // 硬い便
+      } else if($shape == 2) {
+        $score = 2;
+        $comment = 17;
+      // 泥状便
+      } else if($shape == 6) {
+        $score = 2;
+        $comment = 20;
+      // コロコロ便
+      } else if($shape == 1) {
+        $score = 1;
+        $comment = 23;
+      // 水様便
+      } else if($shape == 7) {
+        $score = 1;
+        $comment = 26;
+      }
+    // こげ茶色
+    } else if($color == 3) {
+      // 普通便
+      if($shape == 4) {
+        $score = 3;
+        $comment = 8;
+      // やや硬い便
+      } else if($shape == 3) {
+        $score = 3;
+        $comment = 9;
+      // やや柔らかい便
+      } else if($shape == 5) {
+        $score = 3;
+        $comment = 10;
+      // 硬い便
+      } else if($shape == 2) {
+        $score = 2;
+        $comment = 17;
+      // 泥状便
+      } else if($shape == 6) {
+        $score = 2;
+        $comment = 20;
+      // コロコロ便
+      } else if($shape == 1) {
+        $score = 1;
+        $comment = 23;
+      // 水様便
+      } else if($shape == 7) {
+        $score = 1;
+        $comment = 26;
+      }
+    // 緑色
+    } else if($color == 7) {
+      // 普通便
+      if($shape == 4) {
+        $score = 3;
+        $comment = 11;
+      // やや硬い便
+      } else if($shape == 3) {
+        $score = 3;
+        $comment = 12;
+      // やや柔らかい便
+      } else if($shape == 5) {
+        $score = 3;
+        $comment = 13;
+      // 硬い便
+      } else if($shape == 2) {
+        $score = 2;
+        $comment = 18;
+      // 泥状便
+      } else if($shape == 6) {
+        $score = 2;
+        $comment = 21;
+      // コロコロ便
+      } else if($shape == 1) {
+        $score = 1;
+        $comment = 24;
+      // 水様便
+      } else if($shape == 7) {
+        $score = 1;
+        $comment = 27;
+      }
+    // 白色
+    } else if($color == 8) {
+      // 普通便
+      if($shape == 4) {
+        $score = 3;
+        $comment = 14;
+      // やや硬い便
+      } else if($shape == 3) {
+        $score = 3;
+        $comment = 15;
+      // やや柔らかい便
+      } else if($shape == 5) {
+        $score = 3;
+        $comment = 16;
+      // 硬い便
+      } else if($shape == 2) {
+        $score = 2;
+        $comment = 19;
+      // 泥状便
+      } else if($shape == 6) {
+        $score = 2;
+        $comment = 22;
+      // コロコロ便
+      } else if($shape == 1) {
+        $score = 1;
+        $comment = 25;
+      // 水様便
+      } else if($shape == 7) {
+        $score = 1;
+        $comment = 28;
+      }
+    // 赤色
+    } else if($color == 4) {
+      $score = 0;
+      $comment = 29;
+    // 黒色
+    } else if($color == 5) {
+      $score = 0;
+      $comment = 30;
+    // 灰色
+    } else if($color == 6) {
+      $score = 0;
+      $comment = 31;
     }
-  // 黄褐色
-  } else if($color == 1) {
-    // 普通便
-    if($shape == 4) {
-      $score = 3;
-      $comment = 5;
-    // やや硬い便
-    } else if($shape == 3) {
-      $score = 3;
-      $comment = 6;
-    // やや柔らかい便
-    } else if($shape == 5) {
-      $score = 3;
-      $comment = 7;
-    // 硬い便
-    } else if($shape == 2) {
-      $score = 2;
-      $comment = 17;
-    // 泥状便
-    } else if($shape == 6) {
-      $score = 2;
-      $comment = 20;
-    // コロコロ便
-    } else if($shape == 1) {
-      $score = 1;
-      $comment = 23;
-    // 水様便
-    } else if($shape == 7) {
-      $score = 1;
-      $comment = 26;
+  // 1歳未満の評価
+  } else {
+    $score_text = "score_baby";
+    // 乳児のamountは「みずっぽい」,「ふつう」,「かたい」
+    // scoreは「心配」,「ちょっと心配」,「心配なし」
+    if($age >= -4 && $age <= 0) {
+      // 黄色系or緑色
+      if($color <= 3 || $color == 7) {
+        if($amount <= 2) {
+          $score = 2;
+          $comment = 32;
+        } else if($amount == 3) {
+          $score = 1;
+          $comment = 33;
+        }
+      // 赤色
+      } else if($color == 4) {
+        $score = 0;
+        $comment = 34;
+      // 黒色
+      } else if($color == 5) {
+        $score = 0;
+        $comment = 35;
+      // 白系
+      } else if($color == 6 || $color == 8) {
+        $score = 0;
+        $comment = 36;
+      }
+    } else if($age >= -8 && $age <= -5) {
+      // 黄色系or緑色
+      if($color <= 3 || $color == 7) {
+        if($amount <= 2) {
+          $score = 2;
+          $comment = 37;
+        } else if($amount == 3) {
+          $score = 1;
+          $comment = 38;
+        }
+      // 赤色
+      } else if($color == 4) {
+        $score = 0;
+        $comment = 39;
+      // 黒色
+      } else if($color == 5) {
+        $score = 0;
+        $comment = 40;
+      // 白系
+      } else if($color == 6 || $color == 8) {
+        $score = 0;
+        $comment = 41;
+      }
+    } else if($age >= -12 && $age <= -9) {
+      // 黄色系or緑色
+      if($color <= 3 || $color == 7) {
+        if($amount == 2) {
+          $score = 2;
+          $comment = 42;
+        } else if($amount == 3) {
+          $score = 1;
+          $comment = 43;
+        } else {
+          $score = 1;
+          $comment = 44;
+        }
+      // 赤色
+      } else if($color == 4) {
+        $score = 0;
+        $comment = 45;
+      // 黒色
+      } else if($color == 5) {
+        $score = 0;
+        $comment = 46;
+      // 白系
+      } else if($color == 6 || $color == 8) {
+        $score = 0;
+        $comment = 47;
+      }
     }
-  // こげ茶色
-  } else if($color == 3) {
-    // 普通便
-    if($shape == 4) {
-      $score = 3;
-      $comment = 8;
-    // やや硬い便
-    } else if($shape == 3) {
-      $score = 3;
-      $comment = 9;
-    // やや柔らかい便
-    } else if($shape == 5) {
-      $score = 3;
-      $comment = 10;
-    // 硬い便
-    } else if($shape == 2) {
-      $score = 2;
-      $comment = 17;
-    // 泥状便
-    } else if($shape == 6) {
-      $score = 2;
-      $comment = 20;
-    // コロコロ便
-    } else if($shape == 1) {
-      $score = 1;
-      $comment = 23;
-    // 水様便
-    } else if($shape == 7) {
-      $score = 1;
-      $comment = 26;
-    }
-  // 緑色
-  } else if($color == 7) {
-    // 普通便
-    if($shape == 4) {
-      $score = 3;
-      $comment = 11;
-    // やや硬い便
-    } else if($shape == 3) {
-      $score = 3;
-      $comment = 12;
-    // やや柔らかい便
-    } else if($shape == 5) {
-      $score = 3;
-      $comment = 13;
-    // 硬い便
-    } else if($shape == 2) {
-      $score = 2;
-      $comment = 18;
-    // 泥状便
-    } else if($shape == 6) {
-      $score = 2;
-      $comment = 21;
-    // コロコロ便
-    } else if($shape == 1) {
-      $score = 1;
-      $comment = 24;
-    // 水様便
-    } else if($shape == 7) {
-      $score = 1;
-      $comment = 27;
-    }
-  // 白色
-  } else if($color == 8) {
-    // 普通便
-    if($shape == 4) {
-      $score = 3;
-      $comment = 14;
-    // やや硬い便
-    } else if($shape == 3) {
-      $score = 3;
-      $comment = 15;
-    // やや柔らかい便
-    } else if($shape == 5) {
-      $score = 3;
-      $comment = 16;
-    // 硬い便
-    } else if($shape == 2) {
-      $score = 2;
-      $comment = 19;
-    // 泥状便
-    } else if($shape == 6) {
-      $score = 2;
-      $comment = 22;
-    // コロコロ便
-    } else if($shape == 1) {
-      $score = 1;
-      $comment = 25;
-    // 水様便
-    } else if($shape == 7) {
-      $score = 1;
-      $comment = 28;
-    }
-  // 赤色
-  } else if($color == 4) {
-    $score = 0;
-    $comment = 29;
-  // 黒色
-  } else if($color == 5) {
-    $score = 0;
-    $comment = 30;
-  // 灰色
-  } else if($color == 6) {
-    $score = 0;
-    $comment = 31;
   }
 
   
+
 
   // 評価結果をすべてデータベースに追加する
   try {
@@ -302,7 +387,7 @@
       <h3>---------------</h3> -->
       <div class="result_texts_frame">
         <h3 class="popup_date"><i class="far fa-calendar-alt"></i> ： <?php echo($result_date); ?></h3>
-        <p>ひょうか： <?php echo($unchi_info["score"][$score]); ?></p>
+        <p>ひょうか： <?php echo($unchi_info[$score_text][$score]); ?></p>
         <p class="none">かたち： <?php echo($unchi_info["shape"][$shape]); ?></p>
         <p>いろ： <?php echo($unchi_info["color"][$color]); ?></p>
         <p class="none">りょう： <?php echo($unchi_info["amount"][$amount]); ?></p>

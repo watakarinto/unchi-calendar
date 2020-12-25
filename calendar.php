@@ -131,7 +131,8 @@
     "color" => array(1 => "黄褐色", 2 => "茶色", 3 => "こげ茶", 4 => "赤", 5 => "黒", 6 => "灰色", 7 => "緑", 8 => "白"),
     "amount" => array(1 => "すくない", 2 => "ふつう", 3 => "おおい"),
     "hardness" => array(1 => "みずっぽい", 2 => "ふつう", 3 => "かたい"),
-    "score" => array(-3 => "心配なし", -2 => "ちょっと心配", -1 => "心配", 0 => "不可", 1 => "可", 2 => "良", 3 => "優", 4 => "秀")
+    "score" => array(0 => "不可", 1 => "可", 2 => "良", 3 => "優", 4 => "秀"),
+    "score_baby" => array(0 => "心配", 1 => "ちょっと心配", 2 => "心配なし")
   );
 
   // 日付をクリックしたときの処理
@@ -142,10 +143,11 @@
     $color = $unchi_info["color"][$unchi_data[$submit_date][0][1]];
     if($_SESSION["now_age"] > 0) {
       $amount = $unchi_info["amount"][$unchi_data[$submit_date][0][2]];
+      $score = $unchi_info["score"][$unchi_data[$submit_date][0][3]];
     } else {
       $amount = $unchi_info["hardness"][$unchi_data[$submit_date][0][2]];
+      $score = $unchi_info["score_baby"][$unchi_data[$submit_date][0][3]];
     }
-    $score = $unchi_info["score"][$unchi_data[$submit_date][0][3]];
   } else {
     $_SESSION["popup"] = "none"; // ポップアップの無効化
     $json_array  = "none";

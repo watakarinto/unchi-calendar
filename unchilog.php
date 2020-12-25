@@ -38,13 +38,7 @@
     // 配列の初期化
     $date = array();
     while($row = $stmh->fetch(PDO::FETCH_ASSOC)) {
-      // 赤ちゃんの時の変換
-      if($row["result"] < 0) {
-        $result = -1 * $row["result"];
-        array_push($date, [$row["timelog"], $result]);
-      } else {
-        array_push($date, [$row["timelog"], $row["result"]]);
-      } 
+      array_push($date, [$row["timelog"], $row["result"]]);
     }
   } catch(PDOException $e) {
     die('トランザクションエラー：' . $e->getMessage());
