@@ -98,13 +98,10 @@
             <!-- 量の選択 -->
             <div class="tab_content" id="amount_content">
               <div class="amounts">
-                  <!-- <input type="radio" name="amounts" id="amount_button0" value="1"><label class="amount_content" id="amount0" for="amount_button0"></label>
-                  <input type="radio" name="amounts" id="amount_button1" value="2"><label class="amount_content" id="amount1" for="amount_button1"></label>
-                  <input type="radio" name="amounts" id="amount_button2" value="3"><label class="amount_content" id="amount2" for="amount_button2"></label> -->
-                  <input type="radio" name="amounts" id="amount_button0" value="1"><label class="amount_content" for="amount_button0"><p class="amount_text">1.すくない</p></label>
-                  <input type="radio" name="amounts" id="amount_button1" value="2"><label class="amount_content" for="amount_button1"><p class="amount_text">2.ふつう</p></label>
-                  <input type="radio" name="amounts" id="amount_button2" value="3"><label class="amount_content" for="amount_button2"><p class="amount_text">3.おおい</p></label>
-                </div>
+                <input type="radio" name="amounts" id="amount_button0" value="1"><label class="amount_content" for="amount_button0"><p class="amount_text">1.すくない</p></label>
+                <input type="radio" name="amounts" id="amount_button1" value="2"><label class="amount_content" for="amount_button1"><p class="amount_text">2.ふつう</p></label>
+                <input type="radio" name="amounts" id="amount_button2" value="3"><label class="amount_content" for="amount_button2"><p class="amount_text">3.おおい</p></label>
+              </div>
             </div>
           </div>
         </div>
@@ -112,6 +109,9 @@
         <br>
         <button class="submit" type="submit" name="submit">完 了</button>
       </form>
+      <table>
+        <tr><td></td><td></td></tr>
+      </table>
     </div>
   </div>
 

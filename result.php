@@ -26,59 +26,220 @@
 
 
 
-  // 評価の計算
-  // 大人の評価
-  if($age > 0) {
-    if($shape == 4 && $color == 2 && $amount == 2) {
-      $score = 4;
-    } else {
-      if($shape >= 3 && $shape <= 5 && ($color <= 3 || $color == 7 || $color == 8) && $amount >= 2) {
-        $score = 3;
-      } else if(($shape == 2 || $shape == 6) && ($color <= 3 || $color == 7 || $color == 8) && $amount >= 2) {
-        $score = 2;
-      } else if(($shape == 1 || $shape == 7) && ($color <= 3 || $color == 7 || $color == 8)) {
-        $score = 1;
-      } else if($color >= 4 || $color <= 6) {
-        $score = 0;
-      }
-    }
-  // 1歳未満の評価
-  } else {
-    // 乳児のamountは「みずっぽい」,「ふつう」,「かたい」
-    // scoreは「心配」,「ちょっと心配」,「心配なし」
-    if($age >= -4 && $age <= 0) {
-      if($color <= 3 || $color == 7) {
-        if($amount <= 2) {
-          $score = -3;
-        } else if($amount == 3) {
-          $score = -2;
-        }
-      } else if(($color >= 4 && $color <= 6) || $color == 8) {
-        $score = -1;
-      }
-    } else if($age >= -8 && $age <= -5) {
-      if($color <= 3 || $color == 7) {
-        if($amount <= 2) {
-          $score = -3;
-        } else if($amount == 3) {
-          $score = -2;
-        }
-      } else if(($color >= 4 && $color <= 6) || $color == 8) {
-        $score = -1;
-      }
-    } else if($age >= -12 && $age <= -9) {
-      if($color <= 3 || $color == 7) {
-        if($amount == 2) {
-          $score = -3;
-        } else {
-          $score = -2;
-        }
-      } else if(($color >= 4 && $color <= 6) || $color == 8) {
-        $score = -1;
-      }
-    }
+
+  // コメントの取得
+  try {
+    $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    // echo('接続しました → ');
+  } catch(PDOException $e) {
+    die('接続エラー：' . $e->getMessage());
+  }
+  // トランザクションの例外処理
+  try {
+    $pdo->beginTransaction();
+    // SQL文(プリペアードステートメント)を準備
+    // プレースホルダは、「:フィールド名」を推奨
+    $sql = 'select comment from comment;';
+    // ステートメントハンドラを準備
+    $stmh = $pdo->prepare($sql);
+    $stmh->bindValue(':date', $date, PDO::PARAM_STR);
+    // プリペアードステートメントを実行
+    $stmh->execute();
+    // エラーが出た場合、例外処理でロールバックする
+    // そうじゃない場合、正常にSQLが実行された場合は、トランザクションを終了
+    $pdo->commit();
+  } catch(PDOException $e) {
+    die('トランザクションエラー：' . $e->getMessage());
+  }
+  // 一致している人がいるかどうか
+  $counter = 1;
+  while ($row=$stmh->fetch(PDO::FETCH_ASSOC)) {
+    $comment_data[$counter] = $row["comment"];
+    $counter++;
   }
 
+
+  // 評価の計算
+  // 大人の評価
+  // 茶色
+  if($color == 2) {
+    // 普通便
+    if($shape == 4) {
+      if($amount == 2) {
+        $score = 4;
+        $comment = 1;
+      } else {
+        $score = 3;
+        $comment = 2;
+      }
+    // やや硬い便
+    } else if($shape == 3) {
+      $score = 3;
+      $comment = 3;
+    // やや柔らかい便
+    } else if($shape == 5) {
+      $score = 3;
+      $comment = 4;
+    // 硬い便
+    } else if($shape == 2) {
+      $score = 2;
+      $comment = 17;
+    // 泥状便
+    } else if($shape == 6) {
+      $score = 2;
+      $comment = 20;
+    // コロコロ便
+    } else if($shape == 1) {
+      $score = 1;
+      $comment = 23;
+    // 水様便
+    } else if($shape == 7) {
+      $score = 1;
+      $comment = 26;
+    }
+  // 黄褐色
+  } else if($color == 1) {
+    // 普通便
+    if($shape == 4) {
+      $score = 3;
+      $comment = 5;
+    // やや硬い便
+    } else if($shape == 3) {
+      $score = 3;
+      $comment = 6;
+    // やや柔らかい便
+    } else if($shape == 5) {
+      $score = 3;
+      $comment = 7;
+    // 硬い便
+    } else if($shape == 2) {
+      $score = 2;
+      $comment = 17;
+    // 泥状便
+    } else if($shape == 6) {
+      $score = 2;
+      $comment = 20;
+    // コロコロ便
+    } else if($shape == 1) {
+      $score = 1;
+      $comment = 23;
+    // 水様便
+    } else if($shape == 7) {
+      $score = 1;
+      $comment = 26;
+    }
+  // こげ茶色
+  } else if($color == 3) {
+    // 普通便
+    if($shape == 4) {
+      $score = 3;
+      $comment = 8;
+    // やや硬い便
+    } else if($shape == 3) {
+      $score = 3;
+      $comment = 9;
+    // やや柔らかい便
+    } else if($shape == 5) {
+      $score = 3;
+      $comment = 10;
+    // 硬い便
+    } else if($shape == 2) {
+      $score = 2;
+      $comment = 17;
+    // 泥状便
+    } else if($shape == 6) {
+      $score = 2;
+      $comment = 20;
+    // コロコロ便
+    } else if($shape == 1) {
+      $score = 1;
+      $comment = 23;
+    // 水様便
+    } else if($shape == 7) {
+      $score = 1;
+      $comment = 26;
+    }
+  // 緑色
+  } else if($color == 7) {
+    // 普通便
+    if($shape == 4) {
+      $score = 3;
+      $comment = 11;
+    // やや硬い便
+    } else if($shape == 3) {
+      $score = 3;
+      $comment = 12;
+    // やや柔らかい便
+    } else if($shape == 5) {
+      $score = 3;
+      $comment = 13;
+    // 硬い便
+    } else if($shape == 7) {
+      $score = 2;
+      $comment = 18;
+    // 泥状便
+    } else if($shape == 6) {
+      $score = 2;
+      $comment = 21;
+    // コロコロ便
+    } else if($shape == 1) {
+      $score = 1;
+      $comment = 24;
+    // 水様便
+    } else if($shape == 7) {
+      $score = 1;
+      $comment = 27;
+    }
+  // 白色
+  } else if($color == 8) {
+    // 普通便
+    if($shape == 4) {
+      $score = 3;
+      $comment = 14;
+    // やや硬い便
+    } else if($shape == 3) {
+      $score = 3;
+      $comment = 15;
+    // やや柔らかい便
+    } else if($shape == 5) {
+      $score = 3;
+      $comment = 16;
+    // 硬い便
+    } else if($shape == 2) {
+      $score = 2;
+      $comment = 19;
+    // 泥状便
+    } else if($shape == 6) {
+      $score = 2;
+      $comment = 22;
+    // コロコロ便
+    } else if($shape == 1) {
+      $score = 1;
+      $comment = 25;
+    // 水様便
+    } else if($shape == 7) {
+      $score = 1;
+      $comment = 28;
+    }
+  // 赤色
+  } else if($color == 4) {
+    $score = 0;
+    $comment = 29;
+  // 黒色
+  } else if($color == 5) {
+    $score = 0;
+    $comment = 30;
+  // 灰色
+  } else if($color == 6) {
+    $score = 0;
+    $comment = 31;
+  }
+
+  
+
+  // 評価結果をすべてデータベースに追加する
   try {
     $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -105,7 +266,6 @@
   } catch(PDOException $e) {
     die('トランザクションエラー：' . $e->getMessage());
   }
-
 
   
 ?><!DOCTYPE html>
@@ -144,16 +304,17 @@
       <p><?php echo($_SESSION["now_age"]); ?></p>
       <h3>---------------</h3> -->
       <div class="result_texts_frame">
-        <h3 class="result_texts popup_date"><i class="far fa-calendar-alt"></i> ： <?php echo($result_date); ?></h3>
-        <p class="result_texts unchi_data">ひょうか： <?php echo($unchi_info["score"][$score]); ?></p>
-        <p class="result_texts unchi_data none">かたち： <?php echo($unchi_info["shape"][$shape]); ?></p>
-        <p class="result_texts unchi_data">いろ： <?php echo($unchi_info["color"][$color]); ?></p>
-        <p class="result_texts unchi_data none">りょう： <?php echo($unchi_info["amount"][$amount]); ?></p>
-        <p class="unchi_data hardness">かたさ：<?php echo($unchi_info["hardness"][$amount]); ?></p>
+        <h3 class="popup_date"><i class="far fa-calendar-alt"></i> ： <?php echo($result_date); ?></h3>
+        <p>ひょうか： <?php echo($unchi_info["score"][$score]); ?></p>
+        <p class="none">かたち： <?php echo($unchi_info["shape"][$shape]); ?></p>
+        <p>いろ： <?php echo($unchi_info["color"][$color]); ?></p>
+        <p class="none">りょう： <?php echo($unchi_info["amount"][$amount]); ?></p>
+        <p class="hardness">かたさ：<?php echo($unchi_info["hardness"][$amount]); ?></p>
       </div>
       <a href="#" class="character_img" id="character_img"></a>
-      <div>
-        <p class="result_texts unchi_data">コメント：<?php  ?></p>
+      <div class="comment_frame">
+        <div class="comment comment_left"><p>コメント： </p></div>
+        <p class="comment"><?php echo($comment_data[$comment]); ?></p>
       </div>
       <a class="button" href="http://localhost/unchi_calendar/calendar.php">カレンダーに戻る</a>
     </div>
