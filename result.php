@@ -20,11 +20,8 @@
   $age = $_SESSION["now_age"];
 
 
-
   // デバッグ用の日付
-  $result_date = date("Y-m-d", strtotime("-1 day"));
-
-
+  $result_date = date("Y-m-d", strtotime("0 day"));
 
 
   // コメントの取得
@@ -316,7 +313,9 @@
         <div class="comment comment_left"><p>コメント： </p></div>
         <p class="comment"><?php echo($comment_data[$comment]); ?></p>
       </div>
-      <a class="button" href="http://localhost/unchi_calendar/calendar.php">カレンダーに戻る</a>
+      <div>
+        <a class="button" href="http://localhost/unchi_calendar/calendar.php">カレンダーに戻る</a>
+      </div>
     </div>
   </div>
 
