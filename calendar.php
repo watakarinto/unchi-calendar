@@ -66,21 +66,15 @@
       }
       if($display == TRUE) {
         $date = sprintf($year . "-" . $month . "-" . "%02d", $date_count); // 出力例: 2020-12-01
-        // データベース接続の例外処理
         try {
-          // PDOクラスのインスタンスを作成し、データベース接続を行う
           $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-          // echo('接続しました → ');
         } catch(PDOException $e) {
           die('接続エラー：' . $e->getMessage());
         }
-        // トランザクションの例外処理
         try {
           $pdo->beginTransaction();
-          // SQL文(プリペアードステートメント)を準備
-          // プレースホルダは、「:フィールド名」を推奨
           $sql = 'select katasa, iro, ryo, result from log';
           $sql .= ' where (timelog = binary :date) and (user_id = binary :user_id)';
           $sql .= ' order by id desc;';
@@ -90,8 +84,6 @@
           $stmh->bindValue(':user_id', $_SESSION["user_id"], PDO::PARAM_STR);
           // プリペアードステートメントを実行
           $stmh->execute();
-          // エラーが出た場合、例外処理でロールバックする
-          // そうじゃない場合、正常にSQLが実行された場合は、トランザクションを終了
           $pdo->commit();
         } catch(PDOException $e) {
           die('トランザクションエラー：' . $e->getMessage());
@@ -139,15 +131,7 @@
   if(isset($_POST["submit"])) {
     $_SESSION["popup"] = "popup"; // ポップアップの有効化
     $submit_date = $_POST["submit"]; // クリックしたマスの日付を格納
-    $shape = $unchi_info["shape"][$unchi_data[$submit_date][0][0]];
-    $color = $unchi_info["color"][$unchi_data[$submit_date][0][1]];
-    if($_SESSION["now_age"] > 0) {
-      $amount = $unchi_info["amount"][$unchi_data[$submit_date][0][2]];
-      $score = $unchi_info["score"][$unchi_data[$submit_date][0][3]];
-    } else {
-      $amount = $unchi_info["hardness"][$unchi_data[$submit_date][0][2]];
-      $score = $unchi_info["score_baby"][$unchi_data[$submit_date][0][3]];
-    }
+    $max_unchi = count($unchi_data[$submit_date]); // その日のうんちの最大数
   } else {
     $_SESSION["popup"] = "none"; // ポップアップの無効化
     $json_array  = "none";
@@ -157,7 +141,8 @@
   // 結果ページ用にセッションに渡す
   $_SESSION["unchi_info"] = $unchi_info;
   // js用に配列を変換
-  $json_array = json_encode($unchi_data);
+  $unchi_data = json_encode($unchi_data);
+  $unchi_info = json_encode($unchi_info);
 
 ?><!DOCTYPE html>
 <html lang="ja">
@@ -194,13 +179,20 @@
       <div class="close_button" id="js_close_button"><i class="fas fa-times"></i></div>
       <div class="popup_inner_text">
         <p class="popup_date"><i class="far fa-calendar-alt"></i> ： <?php echo($year . "-" . $month . "-" . $submit_date); ?></p>
-        <p class="unchi_data">ひょうか：<?php echo($score); ?></p>
-        <p class="unchi_data none">かたち：<?php echo($shape); ?></p>
-        <p class="unchi_data">いろ：<?php echo($color); ?></p>
-        <p class="unchi_data none">りょう：<?php echo($amount); ?></p>
-        <p class="unchi_data hardness">かたさ：<?php echo($amount); ?></p>
+        <p class="unchi_data"></p>
+        <p class="unchi_data none"></p>
+        <p class="unchi_data"></p>
+        <p class="unchi_data none"></p>
+        <p class="unchi_data hardness"></p>
       </div>
-      <a href="#" class="character_img" id="popup_inner_img"></a>
+      <div class="character_img_frame">
+        <a href="#" class="character_img" id="popup_inner_img"></a><br>
+        <div>
+          <button type="button" class="popup_arrow" value="-1" onclick="change_inner(this.value);"><i class="fas fa-caret-left fa-3x"></i></button>
+          <p class="popup_count" id="count">1/<?php echo($max_unchi); ?></p>
+          <button type="button" class="popup_arrow" value="1" onclick="change_inner(this.value);"><i class="fas fa-caret-right fa-3x"></i></button>
+        </div>
+      </div>
     </div>
   <div class="black_bg" id="js_black_bg"></div>
   </div>
@@ -238,7 +230,8 @@
   <script>
     let age = <?php echo($_SESSION["now_age"]); ?>;
     let popup_php = "<?php echo $_SESSION["popup"]; ?>";
-    let unchi_data = <?php echo $json_array; ?>;
+    let unchi_data = <?php echo $unchi_data; ?>;
+    let unchi_info = <?php echo $unchi_info; ?>;
     let click_date = <?php echo $submit_date; ?>;
   </script>
   <script type="text/javascript" src="js/calendar.js"></script>

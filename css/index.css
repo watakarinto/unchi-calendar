@@ -379,22 +379,45 @@ header {
   z-index: 2;
 }
 .popup_inner_text {
-  width: 45%;
+  width: 40%;
   margin-bottom: 20px;
   display: inline-block;
+  vertical-align: top;
   font-size: 18px;
+}
+/* キャラクター画像のフレーム */
+.character_img_frame {
+  display: inline-block;
+  text-align: center;
 }
 /* キャラクター画像 */
 .character_img {
   pointer-events: none;
   display: inline-block;
-  vertical-align: bottom;
 	width: 256px;
 	height: 256px;
   background-image: url(../img/unchi_character.png);
   background-size: 2048px 2048px;
   background-position: -256px 0px;
 }
+/* 矢印ボタン */
+.popup_arrow {
+  cursor: pointer;
+  outline:none;
+  border-style: none;
+  background: none;
+}
+.popup_arrow:active {
+  color: #29d7e7;
+}
+/* カウンターの文字 */
+.popup_count {
+  margin: 0 8px;
+  margin-top: 14px;
+  display: inline-block;
+  vertical-align: top;
+}
+/* バツボタン */
 .close_button {
   position: absolute;
   right: 0;
