@@ -464,10 +464,13 @@ header {
 /* -------------------- キャラクター作成ページ -------------------- */
 
 .character_wrapper {
-  height: 100%;
+  margin-bottom: 150px;
   padding-top: 30px;
   padding-bottom: 0px;
   text-align: center;
+}
+.character_wrapper h2 {
+  margin-bottom: 30px;
 }
 /* キャラクタフォーム全体 */
 .character_form_inner {
@@ -567,56 +570,56 @@ header {
 .shapes input:checked + .shape_content {
   filter: drop-shadow(5px 5px 5px #aaa);
 }
-#shape0 {
+.shape0 {
 	width: 128px;
 	height: 128px;
   background-image: url(../img/unchi_character.png);
   background-size: 1024px 1024px;
   background-position: -128px 0px;
 }
-#shape1 {
+.shape1 {
 	width: 128px;
 	height: 128px;
   background-image: url(../img/unchi_character.png);
   background-size: 1024px 1024px;
   background-position: -128px -128px;
 }
-#shape2 {
+.shape2 {
 	width: 128px;
 	height: 128px;
   background-image: url(../img/unchi_character.png);
   background-size: 1024px 1024px;
   background-position: -128px -256px;
 }
-#shape3 {
+.shape3 {
 	width: 128px;
 	height: 128px;
   background-image: url(../img/unchi_character.png);
   background-size: 1024px 1024px;
   background-position: -128px -384px;
 }
-#shape4 {
+.shape4 {
 	width: 128px;
 	height: 128px;
   background-image: url(../img/unchi_character.png);
   background-size: 1024px 1024px;
   background-position: -128px -512px;
 }
-#shape5 {
+.shape5 {
 	width: 128px;
 	height: 128px;
   background-image: url(../img/unchi_character.png);
   background-size: 1024px 1024px;
   background-position: -128px -640px;
 }
-#shape6 {
+.shape6 {
 	width: 128px;
 	height: 128px;
   background-image: url(../img/unchi_character.png);
   background-size: 1024px 1024px;
   background-position: -128px -768px;
 }
-#shape7 {
+.shape7 {
 	width: 128px;
 	height: 128px;
   background-image: url(../img/unchi_character.png);
@@ -709,6 +712,35 @@ header {
   font-size: 20px;
 }
 
+/* キャラクター紹介 */
+.character_guide_wrapper {
+  /* height: 100%; */
+  padding-top: 30px;
+  padding-bottom: 0px;
+  text-align: center;
+}
+.character_guide_wrapper h2 {
+  margin-bottom: 30px;
+}
+/* テーブル全体 */
+.character_guide_table {
+  display: inline-block;
+  margin-bottom: 100px;
+}
+/* カーソルがホバーしたとき */
+.character_guide_table tr:hover {
+  color: #29d7e7;
+  opacity: 0.75;
+}
+.shape_img {
+  display: inline-block;
+}
+/* キャラクターの説明文 */
+.gude_text {
+  width: 70%;
+  vertical-align: middle;
+  border-bottom: solid 1px black;
+}
 
 /* -------------------- 結果ページ -------------------- */
 .result_wrapper {
@@ -743,10 +775,13 @@ header {
   display: inline-block;
   text-align: left;
   font-size: 17px;
-  line-height: 1.3em;
+  line-height: 1.4em;
 }
 .comment_left {
   vertical-align: top;
+}
+.comment_right {
+  width: 85%;
 }
 
 

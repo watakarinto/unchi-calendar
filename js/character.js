@@ -62,6 +62,7 @@ if(age < 0) {
   let baby_check = document.getElementById("shape_button7");
   let tab_amount = document.getElementById("tab_amount");
   let amount_text = document.getElementsByClassName("amount_text");
+  let guide_table = document.getElementById("character_guide_wrapper");
   // 子どものうんちを表示
   baby_unchi.style.display = "inline-block";
   baby_check.checked = true;
@@ -71,6 +72,8 @@ if(age < 0) {
   }
   // プレビューを赤ちゃんキャラクターにする
   preview.style.backgroundPosition = xy[1] + "px " + xy[7] + "px";
+  // キャラクターの説明を非表示
+  guide_table.style.display = "none";
 
   
   // 「りょう」のタブを「かたさ」のタブに変更

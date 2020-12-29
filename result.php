@@ -21,7 +21,7 @@
 
 
   // デバッグ用の日付
-  $result_date = date("Y-m-d", strtotime("0 day"));
+  $result_date = date("Y-m-d", strtotime("-6 day"));
 
 
   // コメントの取得
@@ -393,7 +393,7 @@
       <a href="#" class="character_img" id="character_img"></a>
       <div class="comment_frame">
         <div class="comment comment_left"><p>コメント： </p></div>
-        <p class="comment"><?php echo($comment_data[$comment]); ?></p>
+        <p class="comment comment_right"><?php echo($comment_data[$comment]); ?></p>
       </div>
       <div>
         <a class="button" href="http://localhost/unchi_calendar/calendar.php">カレンダーに戻る</a>

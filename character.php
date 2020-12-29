@@ -25,6 +25,39 @@
     }
   }
 
+  // コメントの取得
+  try {
+    $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    // echo('接続しました → ');
+  } catch(PDOException $e) {
+    die('接続エラー：' . $e->getMessage());
+  }
+  // トランザクションの例外処理
+  try {
+    $pdo->beginTransaction();
+    // SQL文(プリペアードステートメント)を準備
+    // プレースホルダは、「:フィールド名」を推奨
+    $sql = 'select comment from comment;';
+    // ステートメントハンドラを準備
+    $stmh = $pdo->prepare($sql);
+    $stmh->bindValue(':date', $date, PDO::PARAM_STR);
+    // プリペアードステートメントを実行
+    $stmh->execute();
+    // エラーが出た場合、例外処理でロールバックする
+    // そうじゃない場合、正常にSQLが実行された場合は、トランザクションを終了
+    $pdo->commit();
+  } catch(PDOException $e) {
+    die('トランザクションエラー：' . $e->getMessage());
+  }
+  // 一致している人がいるかどうか
+  $counter = 1;
+  while ($row=$stmh->fetch(PDO::FETCH_ASSOC)) {
+    $comment_data[$counter] = $row["comment"];
+    $counter++;
+  }
+
 
 ?><!DOCTYPE html>
 <html lang="ja">
@@ -56,7 +89,7 @@
   </div>
   <div class="character_wrapper">
     <div class="container">
-      <h2>今日のうんちキャラクターを作ろう！</h2>
+      <h2>・今日のうんちキャラクターを作ろう！</h2>
       <form action="character.php" method="post">
         <div class="character_form_inner">
           <div class="character_frame">
@@ -72,14 +105,14 @@
             <!-- 形の選択 -->
             <div class="tab_content" id="shape_content">
               <div class="shapes">
-                <input type="radio" name="shapes" id="shape_button0" value="1" onclick="click_shape(this.checked, id);"><label class="shape_content" id="shape0" for="shape_button0"></label>
-                <input type="radio" name="shapes" id="shape_button1" value="2" onclick="click_shape(this.checked, id);"><label class="shape_content" id="shape1" for="shape_button1"></label>
-                <input type="radio" name="shapes" id="shape_button2" value="3" onclick="click_shape(this.checked, id);"><label class="shape_content" id="shape2" for="shape_button2"></label>
-                <input type="radio" name="shapes" id="shape_button3" value="4" onclick="click_shape(this.checked, id);"><label class="shape_content" id="shape3" for="shape_button3"></label>
-                <input type="radio" name="shapes" id="shape_button4" value="5" onclick="click_shape(this.checked, id);"><label class="shape_content" id="shape4" for="shape_button4"></label>
-                <input type="radio" name="shapes" id="shape_button5" value="6" onclick="click_shape(this.checked, id);"><label class="shape_content" id="shape5" for="shape_button5"></label>
-                <input type="radio" name="shapes" id="shape_button6" value="7" onclick="click_shape(this.checked, id);"><label class="shape_content" id="shape6" for="shape_button6"></label>
-                <input type="radio" name="shapes" id="shape_button7" value="8" onclick="click_shape(this.checked, id);"><label class="shape_content" id="shape7" for="shape_button7"></label>
+                <input type="radio" name="shapes" id="shape_button0" value="1" onclick="click_shape(this.checked, id);"><label class="shape_content shape0" id="shape0" for="shape_button0"></label>
+                <input type="radio" name="shapes" id="shape_button1" value="2" onclick="click_shape(this.checked, id);"><label class="shape_content shape1" id="shape1" for="shape_button1"></label>
+                <input type="radio" name="shapes" id="shape_button2" value="3" onclick="click_shape(this.checked, id);"><label class="shape_content shape2" id="shape2" for="shape_button2"></label>
+                <input type="radio" name="shapes" id="shape_button3" value="4" onclick="click_shape(this.checked, id);"><label class="shape_content shape3" id="shape3" for="shape_button3"></label>
+                <input type="radio" name="shapes" id="shape_button4" value="5" onclick="click_shape(this.checked, id);"><label class="shape_content shape4" id="shape4" for="shape_button4"></label>
+                <input type="radio" name="shapes" id="shape_button5" value="6" onclick="click_shape(this.checked, id);"><label class="shape_content shape5" id="shape5" for="shape_button5"></label>
+                <input type="radio" name="shapes" id="shape_button6" value="7" onclick="click_shape(this.checked, id);"><label class="shape_content shape6" id="shape6" for="shape_button6"></label>
+                <input type="radio" name="shapes" id="shape_button7" value="8" onclick="click_shape(this.checked, id);"><label class="shape_content shape7" id="shape7" for="shape_button7"></label>
               </div>
             </div>
             <!-- 色の選択 -->
@@ -109,8 +142,20 @@
         <br>
         <button class="submit" type="submit" name="submit">完 了</button>
       </form>
-      <table>
-        <tr><td></td><td></td></tr>
+    </div>
+  </div>
+
+  <div class="character_guide_wrapper" id="character_guide_wrapper">
+    <div class="container">
+      <h2>・キャラクター紹介</h2>
+      <table class="character_guide_table">
+        <tr><td><a class="shape_img shape0"></a><?php echo($_SESSION["unchi_info"]["shape"][1]); ?></td><td class="gude_text"><?php echo($comment_data[48]); ?></td></tr>
+        <tr><td><a class="shape_img shape1"></a><?php echo($_SESSION["unchi_info"]["shape"][2]); ?></td><td class="gude_text"><?php echo($comment_data[49]); ?></td></tr>
+        <tr><td><a class="shape_img shape2"></a><?php echo($_SESSION["unchi_info"]["shape"][3]); ?></td><td class="gude_text"><?php echo($comment_data[50]); ?></td></tr>
+        <tr><td><a class="shape_img shape3"></a><?php echo($_SESSION["unchi_info"]["shape"][4]); ?></td><td class="gude_text"><?php echo($comment_data[51]); ?></td></tr>
+        <tr><td><a class="shape_img shape4"></a><?php echo($_SESSION["unchi_info"]["shape"][5]); ?></td><td class="gude_text"><?php echo($comment_data[52]); ?></td></tr>
+        <tr><td><a class="shape_img shape5"></a><?php echo($_SESSION["unchi_info"]["shape"][6]); ?></td><td class="gude_text"><?php echo($comment_data[53]); ?></td></tr>
+        <tr><td><a class="shape_img shape6"></a><?php echo($_SESSION["unchi_info"]["shape"][7]); ?></td><td class="gude_text"><?php echo($comment_data[54]); ?></td></tr>
       </table>
     </div>
   </div>
