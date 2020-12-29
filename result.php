@@ -21,7 +21,7 @@
 
 
   // デバッグ用の日付
-  $result_date = date("Y-m-d", strtotime("-6 day"));
+  $result_date = date("Y-m-d", strtotime("0 day"));
 
 
   // コメントの取得
