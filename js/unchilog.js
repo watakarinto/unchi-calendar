@@ -23,12 +23,17 @@ for(let i = date.length-1; i >= 0; i--){
 log(7);
 
 function log(num) {
-  // 年齢の判定
-  
   selecter = num; // 1週間か1ヶ月の切り替え変数
   var datelist = [];
   var datalist = [];
   let value;
+  let max = 4;
+
+  // 年齢により最大値を調整
+  if(age < 0) {
+    max = 2;
+  }
+
   for(let i = selecter - 1; i >= 0; i--){
     let dt = new Date();
     dt.setDate(dt.getDate() - i); // i日引いた日付に設定
@@ -71,7 +76,7 @@ function log(num) {
         yAxes:[{
           ticks:{
             min:0, // グラフの最小値
-            max:4, // グラフの最大値
+            max:max, // グラフの最大値
             stepSize: 1 // Y軸のメモリ間隔 
           }
         }]
