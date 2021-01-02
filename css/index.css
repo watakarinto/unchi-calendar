@@ -337,9 +337,15 @@ header {
 .button_td:disabled {
   color: black;
 }
+/* カレンダーの数字のスタイル */
+.calendar_td_css {
+  width: 22px;
+  height: 22px;
+  padding: 4px;
+  display: inline-block;
+}
 /* 今日の日付を協調する */
 .calendar_today{
-  padding: 4px;
   border-radius: 100%;
   background-color: rgb(231, 86, 86);
   color: white;
@@ -570,6 +576,10 @@ header {
 .shapes input:checked + .shape_content {
   filter: drop-shadow(5px 5px 5px #aaa);
 }
+.shapes > div {
+  display: inline-flex;
+  flex-direction: column;
+}
 .shape0 {
 	width: 128px;
 	height: 128px;
@@ -714,7 +724,6 @@ header {
 
 /* キャラクター紹介 */
 .character_guide_wrapper {
-  /* height: 100%; */
   padding-top: 30px;
   padding-bottom: 0px;
   text-align: center;
@@ -733,6 +742,7 @@ header {
   opacity: 0.75;
 }
 .shape_img {
+  margin: 0 20px;
   display: inline-block;
 }
 /* キャラクターの説明文 */

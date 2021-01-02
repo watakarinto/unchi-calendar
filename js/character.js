@@ -57,7 +57,7 @@ function click_pallet(clicked, id) {
 
 // 赤ちゃんの時のキャラクター表示
 if(age < 0) {
-  let adult_unchi = document.getElementsByClassName("shape_content");
+  let adult_unchi = document.getElementsByClassName("select_unchi_frame");
   let baby_unchi = document.getElementById("shape7");
   let baby_check = document.getElementById("shape_button7");
   let tab_amount = document.getElementById("tab_amount");

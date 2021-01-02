@@ -105,13 +105,13 @@
             <!-- 形の選択 -->
             <div class="tab_content" id="shape_content">
               <div class="shapes">
-                <input type="radio" name="shapes" id="shape_button0" value="1" onclick="click_shape(this.checked, id);"><label class="shape_content shape0" id="shape0" for="shape_button0"></label>
-                <input type="radio" name="shapes" id="shape_button1" value="2" onclick="click_shape(this.checked, id);"><label class="shape_content shape1" id="shape1" for="shape_button1"></label>
-                <input type="radio" name="shapes" id="shape_button2" value="3" onclick="click_shape(this.checked, id);"><label class="shape_content shape2" id="shape2" for="shape_button2"></label>
-                <input type="radio" name="shapes" id="shape_button3" value="4" onclick="click_shape(this.checked, id);"><label class="shape_content shape3" id="shape3" for="shape_button3"></label>
-                <input type="radio" name="shapes" id="shape_button4" value="5" onclick="click_shape(this.checked, id);"><label class="shape_content shape4" id="shape4" for="shape_button4"></label>
-                <input type="radio" name="shapes" id="shape_button5" value="6" onclick="click_shape(this.checked, id);"><label class="shape_content shape5" id="shape5" for="shape_button5"></label>
-                <input type="radio" name="shapes" id="shape_button6" value="7" onclick="click_shape(this.checked, id);"><label class="shape_content shape6" id="shape6" for="shape_button6"></label>
+                <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button0" value="1" onclick="click_shape(this.checked, id);"><label class="shape_content shape0" id="shape0" for="shape_button0"></label><?php echo($_SESSION["unchi_info"]["shape"][1]); ?></div>
+                <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button1" value="2" onclick="click_shape(this.checked, id);"><label class="shape_content shape1" id="shape1" for="shape_button1"></label><?php echo($_SESSION["unchi_info"]["shape"][2]); ?></div>
+                <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button2" value="3" onclick="click_shape(this.checked, id);"><label class="shape_content shape2" id="shape2" for="shape_button2"></label><?php echo($_SESSION["unchi_info"]["shape"][3]); ?></div>
+                <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button3" value="4" onclick="click_shape(this.checked, id);"><label class="shape_content shape3" id="shape3" for="shape_button3"></label><?php echo($_SESSION["unchi_info"]["shape"][4]); ?></div>
+                <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button4" value="5" onclick="click_shape(this.checked, id);"><label class="shape_content shape4" id="shape4" for="shape_button4"></label><?php echo($_SESSION["unchi_info"]["shape"][5]); ?></div>
+                <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button5" value="6" onclick="click_shape(this.checked, id);"><label class="shape_content shape5" id="shape5" for="shape_button5"></label><?php echo($_SESSION["unchi_info"]["shape"][6]); ?></div>
+                <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button6" value="7" onclick="click_shape(this.checked, id);"><label class="shape_content shape6" id="shape6" for="shape_button6"></label><?php echo($_SESSION["unchi_info"]["shape"][7]); ?></div>
                 <input type="radio" name="shapes" id="shape_button7" value="8" onclick="click_shape(this.checked, id);"><label class="shape_content shape7" id="shape7" for="shape_button7"></label>
               </div>
             </div>

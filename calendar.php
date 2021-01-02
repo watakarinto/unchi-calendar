@@ -105,9 +105,9 @@
         }
         // ウンチデータが格納されている場合
         if($unchi_data[$date_count][0][0]) {
-          $calendar_html .= '<td><button class="button_td" type="submit" name="submit" value="' . $date_count . '"><span class="' . $calendar_td_css . '">' . $date_count . '</span><br><i class="fas fa-poo"></i></button></td>';
+          $calendar_html .= '<td><button class="button_td" type="submit" name="submit" value="' . $date_count . '"><span class="calendar_td_css ' . $calendar_td_css . '">' . $date_count . '</span><br><i class="fas fa-poo"></i></button></td>';
         } else {
-          $calendar_html .= '<td><button class="button_td" type="submit" name="submit" value="' . $date_count . '" disabled><span class="' . $calendar_td_css . '">' . $date_count . '</span></button></td>';
+          $calendar_html .= '<td><button class="button_td" type="submit" name="submit" value="' . $date_count . '" disabled><span class="calendar_td_css ' . $calendar_td_css . '">' . $date_count . '</span></button></td>';
         }
         $date_count++;
       } else {
