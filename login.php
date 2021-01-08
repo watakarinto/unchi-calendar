@@ -176,6 +176,32 @@
           die('トランザクションエラー：' . $e->getMessage());
         }
         
+        // ユーザーidの取得
+        try {
+          $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        } catch(PDOException $e) {
+          die('接続エラー：' . $e->getMessage());
+        }
+        // トランザクションの例外処理
+        try {
+          $pdo->beginTransaction();
+          $sql = 'select id from unchiuser';
+          $sql .= ' where (user_name = binary :user_name);';
+          // ステートメントハンドラを準備
+          $stmh = $pdo->prepare($sql);
+          $stmh->bindValue(':user_name', $new_user_name, PDO::PARAM_STR);
+        
+          // プリペアードステートメントを実行
+          $stmh->execute();
+          while ($row=$stmh->fetch(PDO::FETCH_ASSOC)) {
+            $_SESSION["user_id"] = $row["id"];
+          }
+        } catch(PDOException $e) {
+          die('トランザクションエラー：' . $e->getMessage());
+        }
+
         // 登録後ログイン状態にし、ページを遷移
         $_SESSION["logined"] = TRUE;
         $_SESSION["user_name"] = $new_user_name;
