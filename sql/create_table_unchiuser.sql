@@ -17,4 +17,3 @@ insert into unchiuser(user_name, user_password, user_age, register) values ('一
 insert into unchiuser(user_name, user_password, user_age, register) values ('花咲じいさん','7777', 38, '2020-06-01');
 insert into unchiuser(user_name, user_password, user_age, register) values ('Donatello K. Davis','8888', 29, '2020-02-01');
 insert into unchiuser(user_name, user_password, user_age, register) values ('情報太郎','9999', 23, '2020-04-01');
-insert into unchiuser(user_name, user_password, user_age, register) values ('宮前椋','1010', 20, '2020-06-01');
