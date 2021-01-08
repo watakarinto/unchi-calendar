@@ -407,6 +407,7 @@
       <img class="gt" src="./img/gt.png" alt="だいなり"><p>今日のうんち</p><img class="gt" src="./img/gt.png" alt="だいなり"><p>結果発表</p>
     </div>
     <div class="source">
+      <a href="http://localhost/unchi_calendar/references.php">参考文献一覧</a>
     </div>
   </footer>
 

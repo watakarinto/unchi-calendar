@@ -224,6 +224,7 @@
 
   <footer class="footer">
     <div class="source">
+      <a href="http://localhost/unchi_calendar/references.php">参考文献一覧</a>
     </div>
   </footer>
 

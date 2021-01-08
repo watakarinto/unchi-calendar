@@ -166,10 +166,11 @@
       <img class="gt" src="./img/gt.png" alt="だいなり"><p>今日のうんち</p>
     </div>
     <div class="source">
+      <a href="http://localhost/unchi_calendar/references.php">参考文献一覧</a>
     </div>
   </footer>
 
-  <script>let age = <?php echo($_SESSION["now_age"]); ?></script>
+  <script>let age = <?php echo($_SESSION["now_age"]); ?>;</script>
   <script type="text/javascript" src="js/character.js"></script>
 </body>
 </html>

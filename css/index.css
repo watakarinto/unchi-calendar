@@ -177,12 +177,13 @@ header {
   display: inline-block;
 }
 .source {
-  padding-top: 100px;
-  text-align: right;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  text-align: center;
 }
 .source a {
   color: #86868b;
-  font-size: 10px;
+  font-size: 20px;
 }
 
 
@@ -740,7 +741,7 @@ header {
 /* テーブル全体 */
 .character_guide_table {
   display: inline-block;
-  margin-bottom: 100px;
+  margin-bottom: 200px;
 }
 /* カーソルがホバーしたとき */
 .character_guide_table tr:hover {
@@ -835,11 +836,39 @@ header {
   border-bottom: 2px solid #b84c00;
 }
 
-
-
-
-
-
+/* -------------------- 参考文献一覧ページ -------------------- */
+.references_wrapper {
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 0px;
+  text-align: center;
+}
+/* 箇条書きのフレーム */
+.references_left {
+  padding-bottom: 120px;
+  display: inline-block;
+}
+/* 箇条書きのスタイル */
+.references_left p {
+ text-align: left;
+ font-size: 18px;
+}
+/*キャラクターのフレーム */
+.references_right {
+  display: inline-block;
+  vertical-align: bottom;
+}
+/* キャラクターの画像 */
+.references_right a {
+  margin-left: 20px;
+  width: 256px;
+  height: 256px;
+  pointer-events: none;
+  display: inline-block;
+  background-image: url(../img/unchi_character.png);
+  background-size: 2048px 2048px;
+  background-position: -256px -768px;
+}
 
 
 

@@ -295,6 +295,7 @@
       <img class="gt" src="./img/gt.png" alt="だいなり"><p>アカウント設定</p>
     </div>
     <div class="source">
+      <a href="http://localhost/unchi_calendar/references.php">参考文献一覧</a>
     </div>
   </footer>
 
