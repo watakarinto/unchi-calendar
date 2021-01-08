@@ -11,7 +11,7 @@
   // エラーメッセージの初期化
   $error_msg1 = "";
 
-  // キャラ情報が選択されているかを判定
+  // キャラ情報が選択されているかを判定 ← おそらく要らなくなったプログラム
   if(isset($_POST["submit"])) {
     if(isset($_POST["shapes"]) && isset($_POST["color_pallet"]) && isset($_POST["amounts"])) {
       // 送信されてきたキャラ情報を格納
@@ -108,7 +108,7 @@
                 <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button0" value="1" onclick="click_shape(this.checked, id);"><label class="shape_content shape0" id="shape0" for="shape_button0"></label><?php echo($_SESSION["unchi_info"]["shape"][1]); ?></div>
                 <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button1" value="2" onclick="click_shape(this.checked, id);"><label class="shape_content shape1" id="shape1" for="shape_button1"></label><?php echo($_SESSION["unchi_info"]["shape"][2]); ?></div>
                 <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button2" value="3" onclick="click_shape(this.checked, id);"><label class="shape_content shape2" id="shape2" for="shape_button2"></label><?php echo($_SESSION["unchi_info"]["shape"][3]); ?></div>
-                <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button3" value="4" onclick="click_shape(this.checked, id);"><label class="shape_content shape3" id="shape3" for="shape_button3"></label><?php echo($_SESSION["unchi_info"]["shape"][4]); ?></div>
+                <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button3" value="4" checked="checked" onclick="click_shape(this.checked, id);"><label class="shape_content shape3" id="shape3" for="shape_button3"></label><?php echo($_SESSION["unchi_info"]["shape"][4]); ?></div>
                 <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button4" value="5" onclick="click_shape(this.checked, id);"><label class="shape_content shape4" id="shape4" for="shape_button4"></label><?php echo($_SESSION["unchi_info"]["shape"][5]); ?></div>
                 <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button5" value="6" onclick="click_shape(this.checked, id);"><label class="shape_content shape5" id="shape5" for="shape_button5"></label><?php echo($_SESSION["unchi_info"]["shape"][6]); ?></div>
                 <div class="select_unchi_frame"><input type="radio" name="shapes" id="shape_button6" value="7" onclick="click_shape(this.checked, id);"><label class="shape_content shape6" id="shape6" for="shape_button6"></label><?php echo($_SESSION["unchi_info"]["shape"][7]); ?></div>
@@ -119,7 +119,7 @@
             <div class="tab_content" id="color_content">
               <div class="color_pallets">
                 <input type="radio" name="color_pallet" id="pallet_button0" value="1" onclick="click_pallet(this.checked, id);"><label class="color_content" id="color0" for="pallet_button0"></label>
-                <input type="radio" name="color_pallet" id="pallet_button1" value="2" onclick="click_pallet(this.checked, id);"><label class="color_content" id="color1" for="pallet_button1"></label>
+                <input type="radio" name="color_pallet" id="pallet_button1" value="2" checked="checked" onclick="click_pallet(this.checked, id);"><label class="color_content" id="color1" for="pallet_button1"></label>
                 <input type="radio" name="color_pallet" id="pallet_button2" value="3" onclick="click_pallet(this.checked, id);"><label class="color_content" id="color2" for="pallet_button2"></label>
                 <input type="radio" name="color_pallet" id="pallet_button3" value="4" onclick="click_pallet(this.checked, id);"><label class="color_content" id="color3" for="pallet_button3"></label>
                 <input type="radio" name="color_pallet" id="pallet_button4" value="5" onclick="click_pallet(this.checked, id);"><label class="color_content" id="color4" for="pallet_button4"></label>
@@ -132,7 +132,7 @@
             <div class="tab_content" id="amount_content">
               <div class="amounts">
                 <input type="radio" name="amounts" id="amount_button0" value="1"><label class="amount_content" for="amount_button0"><p class="amount_text">1.すくない</p></label>
-                <input type="radio" name="amounts" id="amount_button1" value="2"><label class="amount_content" for="amount_button1"><p class="amount_text">2.ふつう</p></label>
+                <input type="radio" name="amounts" id="amount_button1" value="2" checked="checked"><label class="amount_content" for="amount_button1"><p class="amount_text">2.ふつう</p></label>
                 <input type="radio" name="amounts" id="amount_button2" value="3"><label class="amount_content" for="amount_button2"><p class="amount_text">3.おおい</p></label>
               </div>
             </div>

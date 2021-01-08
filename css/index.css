@@ -507,7 +507,7 @@ header {
 	height: 256px;
   background-image: url(../img/unchi_character.png);
   background-size: 2048px 2048px;
-  background-position: -256px 0px;
+  background-position: -256px -768px;
 }
 
 /*タブ切り替え全体のスタイル*/
