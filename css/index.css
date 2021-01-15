@@ -338,6 +338,7 @@ header {
 }
 .button_td:disabled {
   color: black;
+  pointer-events: none;
 }
 .button_td:active {
   border-radius: 5px;

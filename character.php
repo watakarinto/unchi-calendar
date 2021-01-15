@@ -148,6 +148,7 @@
   <div class="character_guide_wrapper" id="character_guide_wrapper">
     <div class="container">
       <h2>・キャラクター紹介</h2>
+      <p>※ブリストル便形状スケール</p>
       <table class="character_guide_table">
         <tr><td><a class="shape_img shape0"></a><?php echo($_SESSION["unchi_info"]["shape"][1]); ?></td><td class="gude_text"><?php echo($comment_data[48]); ?></td></tr>
         <tr><td><a class="shape_img shape1"></a><?php echo($_SESSION["unchi_info"]["shape"][2]); ?></td><td class="gude_text"><?php echo($comment_data[49]); ?></td></tr>
