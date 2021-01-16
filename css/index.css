@@ -214,7 +214,8 @@ header {
   justify-content: flex-end;
 }
 .div_age > select, .div_age_baby > select {
-  padding: 2.5px 5px;
+  padding: 2.5px 0px;
+  padding-right: 25px;
 }
 .div_age_baby {
   display: none;
