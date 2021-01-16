@@ -31,7 +31,7 @@
     // データベース接続の例外処理
     try {
       // PDOクラスのインスタンスを作成し、データベース接続を行う。
-      $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+      $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
       // echo('接続しました → ');
@@ -64,7 +64,7 @@
       // 一致している場合user_idを取得する
       // データベース接続の例外処理
       try {
-        $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+        $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         // echo('接続しました → ');
@@ -119,7 +119,7 @@
       // データベース接続の例外処理
       try {
         // PDOクラスのインスタンスを作成し、データベース接続を行う。
-        $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+        $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
       } catch(PDOException $e) {
@@ -178,7 +178,7 @@
         
         // ユーザーidの取得
         try {
-          $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+          $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         } catch(PDOException $e) {

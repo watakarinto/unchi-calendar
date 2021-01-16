@@ -25,7 +25,7 @@
     if(!empty($change_user_name)) {
       try {
         // PDOクラスのインスタンスを作成し、データベース接続を行う。
-        $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+        $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
       } catch(PDOException $e) {
@@ -84,7 +84,7 @@
     $pass = $_POST["pass"];
     try {
       // PDOクラスのインスタンスを作成し、データベース接続を行う。
-      $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+      $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     } catch(PDOException $e) {
@@ -150,7 +150,7 @@
     if(!empty($pass) && !empty($change_pass) && !empty($confirm_pass)) {
       try {
         // PDOクラスのインスタンスを作成し、データベース接続を行う。
-        $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+        $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
       } catch(PDOException $e) {
@@ -181,7 +181,7 @@
         if($change_pass === $confirm_pass) {
           try {
             // PDOクラスのインスタンスを作成し、データベース接続を行う。
-            $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+            $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
           } catch(PDOException $e) {

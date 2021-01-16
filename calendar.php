@@ -67,7 +67,7 @@
       if($display == TRUE) {
         $date = sprintf($year . "-" . $month . "-" . "%02d", $date_count); // 出力例: 2020-12-01
         try {
-          $pdo = new PDO('mysql:host=localhost;dbname=sampledb;charset=utf8', 'sample','password');
+          $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
           $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         } catch(PDOException $e) {
