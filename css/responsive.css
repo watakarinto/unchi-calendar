@@ -1,0 +1,33 @@
+/* タブレット向けレイアウト */
+@media all and (max-width: 1000px) {
+  /* -------------------- キャラクター作成ページ -------------------- */
+  /* キャラクタフォーム全体 */
+  .character_form_inner {
+    width: 90%;
+  }
+  /* キャラクターフレーム */
+  .character_frame {
+    margin-top: auto;
+  }
+  /*タブ切り替え全体のスタイル*/
+  .tabs {
+    width: 90%;
+  }
+}
+
+/* スマホ向けレイアウト */
+@media all and (max-width: 670px) {
+  /* -------------------- キャラクター作成ページ -------------------- */
+  /* キャラクタフォーム全体 */
+  .character_form_inner {
+    width: auto;
+  }
+  /* キャラクターフレーム */
+  .character_frame {
+    margin-top: auto;
+  }
+  /*タブ切り替え全体のスタイル*/
+  .tabs {
+    width: 100%;
+  }
+}
