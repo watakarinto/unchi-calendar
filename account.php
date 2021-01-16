@@ -252,36 +252,36 @@
   <div class="setting_wrapper">
     <div class="container">
       <div class="row">
-        <div class="section-name">
+        <div class="section_name">
           <h2>アカウント</h2>
         </div>
         <div class="row_content">
           <h3>ユーザー名を変更</h3>
           現在のユーザー名：<?php echo($_SESSION["user_name"]); ?>
           <form action="account.php" method="post">
-            新しいユーザー名：<input class="form_text" type="text" name="change_user_name">
+            <p>新しいユーザー名：</P><input class="form_text" type="text" name="change_user_name">
             <input class="button_setting" type="submit" value="変 更">
           </form>
           <span class="error_msg <?php echo($change_setting); ?>"><?php echo($error_msg1); ?></span>
           <h3>アカウントを削除</h3>
           現在のアカウント：<?php echo($_SESSION["user_name"]); ?>
           <form action="account.php" method="post">
-            パスワード：<input class="form_text" type="password" name="pass">
+            <p>パスワード：</p><input class="form_text" type="password" name="pass">
             <input class="button_setting" type="submit" name="rm" value="削 除">
           </form>
           <span class="error_msg <?php echo($change_setting); ?>"><?php echo($error_msg2); ?></span>
         </div>
       </div>
       <div class="row">
-        <div class="section-name">
+        <div class="section_name">
           <h2>セキュリティ</h2>
         </div>
         <div class="row_content">
           <h3>パスワードを変更</h3>
           <form action="account.php" method="post">
-            現在のパスワード：<input class="form_text" type="password" name="pass"><br>
-            新しいパスワード：<input class="form_text" type="password" name="change_pass"><br>
-            パスワードを確認：<input class="form_text" type="password" name="confirm_pass">
+            <p>現在のパスワード：</p><input class="form_text" type="password" name="pass"><br>
+            <p>新しいパスワード：</p><input class="form_text" type="password" name="change_pass"><br>
+            <p>パスワードを確認：</p><input class="form_text" type="password" name="confirm_pass">
             <input class="button_setting" type="submit" value="変 更">
           </form>
           <span class="error_msg <?php echo($change_setting); ?>"><?php echo($error_msg3); ?></span>

@@ -242,13 +242,13 @@ header {
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 }
 
-.section-name {
+.section_name {
   float: left;
   width: 33%;
   height: 40px;
   display: inline-block;
 }
-.section-name h2 {
+.section_name h2 {
   padding-top: 0;
   margin-top: 0;
 }
@@ -257,6 +257,9 @@ header {
   padding-bottom: 30px;
   display: inline-block;
   font-size: 16px;
+}
+.row_content p {
+  display: inline-block;
 }
 
 .button_setting {
