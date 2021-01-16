@@ -188,7 +188,6 @@ header {
 
 
 /* -------------------- ログインページ -------------------- */
-
 .acount_wrapper {
   height: 100%;
   /* padding-bottom: 600px; */
@@ -233,10 +232,6 @@ header {
 }
 
 /* -------------------- アカウント設定ページ -------------------- */
-
-* {
-  /* border: solid 1px; */
-}
 .setting_wrapper {
   height: 100%;
   padding-top: 50px;
@@ -288,7 +283,6 @@ header {
 }
 
 /* -------------------- カレンダーページ -------------------- */
-
 .calendar_wrapper {
   height: 100%;
   padding-top: 30px;
@@ -763,9 +757,8 @@ header {
 
 /* -------------------- 結果ページ -------------------- */
 .result_wrapper {
-  height: 100%;
   padding-top: 30px;
-  padding-bottom: 0px;
+  padding-bottom: 150px;
   text-align: center;
 }
 /* 評価結果の全体フレーム */

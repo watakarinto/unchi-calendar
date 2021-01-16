@@ -151,6 +151,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <title>うんちカレンダー</title>
 </head>
 <body>
@@ -187,7 +188,7 @@
       </div>
       <div class="character_img_frame">
         <a href="#" class="character_img" id="popup_inner_img"></a><br>
-        <div>
+        <div class="change_character">
           <button type="button" class="popup_arrow" value="-1" onclick="change_inner(this.value);"><i class="fas fa-caret-left fa-3x"></i></button>
           <p class="popup_count" id="count">1/<?php echo($max_unchi); ?></p>
           <button type="button" class="popup_arrow" value="1" onclick="change_inner(this.value);"><i class="fas fa-caret-right fa-3x"></i></button>

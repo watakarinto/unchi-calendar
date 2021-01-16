@@ -354,6 +354,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <title>うんちカレンダー</title>
 </head>
 <body>
@@ -378,10 +379,6 @@
   <div class="result_wrapper">
     <div class="container">
       <h2>～今日のうんちの評価～</h2>
-      <!-- <h3>--- 下記よりデバッグ用の表示 ---</h3>
-      <h3>登録年齢</h3>
-      <p><?php echo($_SESSION["now_age"]); ?></p>
-      <h3>---------------</h3> -->
       <div class="result_texts_frame">
         <h3 class="popup_date"><i class="far fa-calendar-alt"></i> ： <?php echo($result_date); ?></h3>
         <p>ひょうか： <?php echo($unchi_info[$score_text][$score]); ?></p>
