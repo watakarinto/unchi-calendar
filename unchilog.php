@@ -55,7 +55,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
-  
+  <link rel="stylesheet" href="css/responsive.css">
   <title>うんちカレンダー</title>
 </head>
 <body>
@@ -80,13 +80,15 @@
   <div class="unchilog_wrapper">
     <div class="container">
       <!-- 下記よりグラフの表示領域 -->
-      <canvas id="line-chart" width="5" height="1"></canvas>
-      <form action="unchilog.php" method="post" class="selecters">
-        <input type="radio" name="selecter" id="one_week" checked="checked" onclick="log(7);">
-        <label for="one_week">１週間</label>
-        <input type="radio" name="selecter" id="one_month" onclick="log(30);">
-        <label for="one_month">１ヶ月</label>
-      </form>
+      <div class="canvas-container">
+        <canvas id="line-chart"></canvas>
+        <form action="unchilog.php" method="post" class="selecters">
+          <input type="radio" name="selecter" id="one_week" checked="checked" onclick="log(7);">
+          <label for="one_week">１週間</label>
+          <input type="radio" name="selecter" id="one_month" onclick="log(30);">
+          <label for="one_month">１ヶ月</label>
+        </form>
+      </div>
     </div>
   </div>
 

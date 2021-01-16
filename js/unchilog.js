@@ -72,6 +72,7 @@ function log(num) {
       ]
     },
     options:{
+      maintainAspectRatio: false,
       scales:{
         yAxes:[{
           ticks:{

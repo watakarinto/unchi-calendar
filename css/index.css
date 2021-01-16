@@ -811,6 +811,12 @@ header {
   padding-bottom: 0px;
   text-align: center;
 }
+/* キャンバスのスタイル */
+.canvas-container {
+  position: relative;
+  width:  calc(100% - 40px);
+  height: 350px;
+}
 /*ラジオボタンを全て消す*/
 .selecters input {
   display: none;
