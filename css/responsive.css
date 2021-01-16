@@ -97,6 +97,9 @@
   .change_character {
     margin-bottom: 10px;
   }
+  .calendar_bottom_buttons {
+    display: block;
+  }
 
   /* -------------------- キャラクター作成ページ -------------------- */
   /* キャラクタフォーム全体 */
