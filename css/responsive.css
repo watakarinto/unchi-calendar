@@ -64,6 +64,10 @@
     float: left;
     transition: all 0.5s;
   }
+  /* フッター部分 */
+  .footer {
+    padding: 0 20px;
+  }
 
   /* -------------------- アカウント設定ページ -------------------- */
   .section_name {
