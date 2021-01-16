@@ -75,7 +75,6 @@ header {
 .top_wrapper {
   padding-top: 100px;
   padding-bottom: 40px;
-  /* background-color: lightblue; */
   text-align: center;
 }
 .top_wrapper > .container > h1 {
@@ -189,8 +188,8 @@ header {
 
 /* -------------------- ログインページ -------------------- */
 .acount_wrapper {
-  height: 100%;
-  /* padding-bottom: 600px; */
+  height: auto;
+  min-height: 100%;
   text-align: center;
 }
 /* ログインフォーム */
@@ -233,7 +232,8 @@ header {
 
 /* -------------------- アカウント設定ページ -------------------- */
 .setting_wrapper {
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   padding-top: 50px;
 }
 .row {
@@ -284,9 +284,10 @@ header {
 
 /* -------------------- カレンダーページ -------------------- */
 .calendar_wrapper {
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   padding-top: 30px;
-  padding-bottom: 0px;
+  padding-bottom: 150px;
   text-align: center;
 }
 .calendar_top_buttons h2 {
@@ -473,6 +474,8 @@ header {
 /* -------------------- キャラクター作成ページ -------------------- */
 
 .character_wrapper {
+  height: auto;
+  min-height: 100%;
   margin-bottom: 150px;
   padding-top: 30px;
   padding-bottom: 0px;
@@ -757,6 +760,8 @@ header {
 
 /* -------------------- 結果ページ -------------------- */
 .result_wrapper {
+  height: auto;
+  min-height: 100%;
   padding-top: 30px;
   padding-bottom: 150px;
   text-align: center;
@@ -799,7 +804,8 @@ header {
 
 /* -------------------- ログページ -------------------- */
 .unchilog_wrapper {
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   padding-top: 30px;
   padding-bottom: 0px;
   text-align: center;
@@ -839,7 +845,8 @@ header {
 
 /* -------------------- 参考文献一覧ページ -------------------- */
 .references_wrapper {
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   padding-top: 30px;
   padding-bottom: 0px;
   text-align: center;

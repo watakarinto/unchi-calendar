@@ -29,6 +29,37 @@
 
 /* スマホ向けレイアウト */
 @media all and (max-width: 670px) {
+  /* ヘッダー部分 */
+  .header_left {
+    float: left;
+    margin-right: 10%;
+  }
+  .logo {
+    display: inline-block;
+    width: 110px;
+    margin-top: 18px;
+    margin-left: 12px;
+  }
+  .header_right {
+    float: right;
+    margin-right: 0px;
+  }
+  .header_right form {
+    padding: 0;
+    margin: 0;
+    display: block;
+    float: left;
+  }
+  .header_right a {
+    line-height: 55px;
+    padding: 0 15px;
+    color: white;
+    display: block;
+    float: left;
+    transition: all 0.5s;
+  }
+
+
   /* -------------------- カレンダーページ -------------------- */
   /* 日付をクリックしたときのポップアップ */
   .popup_inner {
@@ -57,6 +88,12 @@
   /*タブ切り替え全体のスタイル*/
   .tabs {
     width: 100%;
+  }
+  .tab_content {
+    height: auto;
+  }
+  .shapes, .color_pallets, .amounts {
+    padding-top: 20px;
   }
 
   /* -------------------- 結果ページ -------------------- */
