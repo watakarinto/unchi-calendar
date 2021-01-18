@@ -3,7 +3,7 @@
   session_start();
   // セッションが切れていたらlogin.phpに戻す
   if(!isset($_SESSION["logined"])){
-    header("Location: http://localhost/unchi_calendar/login.php");
+    header("Location: ../unchi_calendar/login.php");
     exit;
   }
   
@@ -157,14 +157,14 @@
 <body>
   <header>
     <div class="header_left">
-      <a href="http://localhost/unchi_calendar/calendar.php"><img class="logo" src="./img/logo.png"></a>
+      <a href="../unchi_calendar/calendar.php"><img class="logo" src="./img/logo.png"></a>
     </div>
     <div class="header_right">
       <form action="login.php" method="post" name="form_logout">
         <input type="hidden" name="logout">
         <a href="javascript:form_logout.submit()">ログアウト</a>
       </form>
-      <a href="http://localhost/unchi_calendar/account.php"><?php echo($_SESSION["user_name"]); ?></a>
+      <a href="../unchi_calendar/account.php"><?php echo($_SESSION["user_name"]); ?></a>
     </div>
   </header>
   
@@ -216,16 +216,17 @@
           </table>
         </div>
       </form>
-      <div class="calendar_bottom_buttons">
-        <a href="http://localhost/unchi_calendar/unchilog.php" class="button button_title">うんちログ</a><br>
-        <a href="http://localhost/unchi_calendar/character.php" class="button button_title">今日のうんち</a>
-      </div>
+      <form class="calendar_bottom_buttons" name="calendar_form" action="character.php" method="post">
+        <a href="../unchi_calendar/unchilog.php" class="button button_title">うんちログ</a><br>
+        <input type=hidden name="from_calendar">
+        <a href="javascript:calendar_form.submit()" class="button button_title">今日のうんち</a>
+      </form>
     </div>
   </div>
 
   <footer class="footer">
     <div class="source">
-      <a href="http://localhost/unchi_calendar/references.php">参考文献一覧</a>
+      <a href="../unchi_calendar/references.php">参考文献一覧</a>
     </div>
   </footer>
 

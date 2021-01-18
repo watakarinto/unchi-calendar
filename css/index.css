@@ -212,6 +212,7 @@ header {
   justify-content: flex-end;
 }
 .div_age > select, .div_age_baby > select {
+  width: 120px;
   padding: 2.5px 0px;
   padding-right: 25px;
 }
@@ -469,7 +470,7 @@ header {
   display: flex;
   justify-content: center;
 }
-/* ウンチログボタン */
+/* うんちログボタン */
 .calendar_bottom_buttons > a {
   margin: 25px;
 }
@@ -818,6 +819,8 @@ header {
   position: relative;
   width:  calc(100% - 40px);
   height: 350px;
+  display: inline-block;
+  text-align: center;
 }
 /*ラジオボタンを全て消す*/
 .selecters input {

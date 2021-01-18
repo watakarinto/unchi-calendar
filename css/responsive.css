@@ -64,6 +64,19 @@
     float: left;
     transition: all 0.5s;
   }
+  /* フォームの入力欄 */
+  .form_text {
+    width: 55%;
+    margin: 2px;
+    height: 25px;
+    border: solid 0.5px;
+    border-radius: 6px;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 400;
+    display: inline-block;
+    color: #494949;
+  }
   /* フッター部分 */
   .footer {
     padding: 0 20px;

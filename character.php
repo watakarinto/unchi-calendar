@@ -2,7 +2,7 @@
   session_start();
   // セッションが切れていたらlogin.phpに戻す
   if(!isset($_SESSION["logined"])){
-    header("Location: http://localhost/unchi_calendar/login.php");
+    header("Location: ../unchi_calendar/login.php");
     exit;
   }
 
@@ -11,14 +11,26 @@
   // エラーメッセージの初期化
   $error_msg1 = "";
 
-  // キャラ情報が選択されているかを判定 ← おそらく要らなくなったプログラム
+
+  // カレンダーページから来ているか判定
+  if(isset($_POST["from_calendar"])) {
+    $_SESSION["from_calendar"] = TRUE;
+  }
+  if(empty($_SESSION["from_calendar"])) {
+    header("Location: ../unchi_calendar/calendar.php");
+    exit;
+  }
+
+  // キャラ情報が選択されているかを判定 ← 念のための再確認
   if(isset($_POST["submit"])) {
     if(isset($_POST["shapes"]) && isset($_POST["color_pallet"]) && isset($_POST["amounts"])) {
       // 送信されてきたキャラ情報を格納
       $_SESSION["shape"] = $_POST["shapes"];
       $_SESSION["color"] = $_POST["color_pallet"];
       $_SESSION["amount"] = $_POST["amounts"];
-      header("Location: http://localhost/unchi_calendar/result.php");
+      $_SESSION["from_character"] = TRUE;
+      $_SESSION["from_calendar"] = FALSE;
+      header("Location: ../unchi_calendar/result.php");
       exit;
     } else {
       $error_msg1 = "キャラクター情報を全て選択してください。";
@@ -72,14 +84,14 @@
 <body>
   <header>
     <div class="header_left">
-      <a href="http://localhost/unchi_calendar/calendar.php"><img class="logo" src="./img/logo.png"></a>
+      <a href="../unchi_calendar/calendar.php"><img class="logo" src="./img/logo.png"></a>
     </div>
     <div class="header_right">
       <form action="login.php" method="post" name="form_logout">
         <input type="hidden" name="logout">
         <a href="javascript:form_logout.submit()">ログアウト</a>
       </form>
-      <a href="http://localhost/unchi_calendar/account.php"><?php echo($_SESSION["user_name"]); ?></a>
+      <a href="../unchi_calendar/account.php"><?php echo($_SESSION["user_name"]); ?></a>
     </div>
   </header>
   
@@ -164,11 +176,11 @@
 
   <footer class="footer">
     <div class="link">
-      <a class="footer_logo_a" href="http://localhost/unchi_calendar/calendar.php"><i class="footer_logo far fa-calendar-alt fa-lg"></i></a>
+      <a class="footer_logo_a" href="../unchi_calendar/calendar.php"><i class="footer_logo far fa-calendar-alt fa-lg"></i></a>
       <img class="gt" src="./img/gt.png" alt="だいなり"><p>今日のうんち</p>
     </div>
     <div class="source">
-      <a href="http://localhost/unchi_calendar/references.php">参考文献一覧</a>
+      <a href="../unchi_calendar/references.php">参考文献一覧</a>
     </div>
   </footer>
 

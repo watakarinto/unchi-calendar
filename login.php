@@ -93,7 +93,7 @@
       // ログインを許可する
       $_SESSION["logined"] = TRUE;
       $_SESSION["user_name"] = $user_name;
-      header("Location: http://localhost/unchi_calendar/calendar.php");
+      header("Location: ../unchi_calendar/calendar.php");
       exit;
     } else {
       $_SESSION["logined"] = FALSE;
@@ -207,7 +207,7 @@
         $_SESSION["user_name"] = $new_user_name;
         $_SESSION["user_age"] = $user_age;
         $_SESSION["register_date"] = $register_date;
-        header("Location: http://localhost/unchi_calendar/calendar.php");
+        header("Location: ../unchi_calendar/calendar.php");
         exit;
       }
     } else {

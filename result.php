@@ -2,7 +2,7 @@
   session_start();
   // セッションが切れていたらlogin.phpに戻す
   if(!isset($_SESSION["logined"])){
-    header("Location: http://localhost/unchi_calendar/login.php");
+    header("Location: ../unchi_calendar/login.php");
     exit;
   }
 
@@ -21,7 +21,7 @@
 
 
   // デバッグ用の日付
-  // $result_date = date("Y-m-d", strtotime("0 day"));
+  $result_date = date("Y-m-d", strtotime("-10 day"));
 
 
   // コメントの取得
@@ -317,33 +317,35 @@
 
   
 
-
-  // 評価結果をすべてデータベースに追加する
-  try {
-    $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-  } catch(PDOException $e) {
-    die('接続エラー：' . $e->getMessage());
-  }
-  // データベースに登録
-  try {
-    $pdo->beginTransaction();
-    // SQL文(プリペアードステートメント)を準備
-    $sql = 'insert into log (timelog, user_id, katasa, iro, ryo, result)';
-    $sql .= ' values (:date, :id, :shape, :color, :amount, :result);';
-    // ステートメントハンドラを準備
-    $stmh = $pdo->prepare($sql);
-    $stmh->bindValue(':date', $result_date, PDO::PARAM_STR);
-    $stmh->bindValue(':id', $_SESSION["user_id"], PDO::PARAM_STR);
-    $stmh->bindValue(':shape', $shape, PDO::PARAM_STR);
-    $stmh->bindValue(':color', $color, PDO::PARAM_STR);
-    $stmh->bindValue(':amount', $amount, PDO::PARAM_STR);
-    $stmh->bindValue(':result', $score, PDO::PARAM_STR);
-    $stmh->execute();
-    $pdo->commit();
-  } catch(PDOException $e) {
-    die('トランザクションエラー：' . $e->getMessage());
+  if(!empty($_SESSION["from_character"])) {
+    // 評価結果をすべてデータベースに追加する
+    try {
+      $pdo = new PDO('mysql:host=localhost;dbname=proj2020;charset=utf8', 'proj','proj2020');
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    } catch(PDOException $e) {
+      die('接続エラー：' . $e->getMessage());
+    }
+    // データベースに登録
+    try {
+      $pdo->beginTransaction();
+      // SQL文(プリペアードステートメント)を準備
+      $sql = 'insert into log (timelog, user_id, katasa, iro, ryo, result)';
+      $sql .= ' values (:date, :id, :shape, :color, :amount, :result);';
+      // ステートメントハンドラを準備
+      $stmh = $pdo->prepare($sql);
+      $stmh->bindValue(':date', $result_date, PDO::PARAM_STR);
+      $stmh->bindValue(':id', $_SESSION["user_id"], PDO::PARAM_STR);
+      $stmh->bindValue(':shape', $shape, PDO::PARAM_STR);
+      $stmh->bindValue(':color', $color, PDO::PARAM_STR);
+      $stmh->bindValue(':amount', $amount, PDO::PARAM_STR);
+      $stmh->bindValue(':result', $score, PDO::PARAM_STR);
+      $stmh->execute();
+      $pdo->commit();
+    } catch(PDOException $e) {
+      die('トランザクションエラー：' . $e->getMessage());
+    }
+    $_SESSION["from_character"] = FALSE;
   }
 
   
@@ -360,14 +362,14 @@
 <body>
   <header>
     <div class="header_left">
-      <a href="http://localhost/unchi_calendar/calendar.php"><img class="logo" src="./img/logo.png"></a>
+      <a href="../unchi_calendar/calendar.php"><img class="logo" src="./img/logo.png"></a>
     </div>
     <div class="header_right">
       <form action="login.php" method="post" name="form_logout">
         <input type="hidden" name="logout">
         <a href="javascript:form_logout.submit()">ログアウト</a>
       </form>
-      <a href="http://localhost/unchi_calendar/account.php"><?php echo($_SESSION["user_name"]); ?></a>
+      <a href="../unchi_calendar/account.php"><?php echo($_SESSION["user_name"]); ?></a>
     </div>
   </header>
   
@@ -393,18 +395,18 @@
         <p class="comment comment_right"><?php echo($comment_data[$comment]); ?></p>
       </div>
       <div>
-        <a class="button" href="http://localhost/unchi_calendar/calendar.php">カレンダーに戻る</a>
+        <a class="button" href="../unchi_calendar/calendar.php">カレンダーに戻る</a>
       </div>
     </div>
   </div>
 
   <footer class="footer">
     <div class="link">
-      <a class="footer_logo_a" href="http://localhost/unchi_calendar/calendar.php"><i class="footer_logo far fa-calendar-alt fa-lg"></i></a>
+      <a class="footer_logo_a" href="../unchi_calendar/calendar.php"><i class="footer_logo far fa-calendar-alt fa-lg"></i></a>
       <img class="gt" src="./img/gt.png" alt="だいなり"><p>今日のうんち</p><img class="gt" src="./img/gt.png" alt="だいなり"><p>結果発表</p>
     </div>
     <div class="source">
-      <a href="http://localhost/unchi_calendar/references.php">参考文献一覧</a>
+      <a href="../unchi_calendar/references.php">参考文献一覧</a>
     </div>
   </footer>
 
