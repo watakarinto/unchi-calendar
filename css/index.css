@@ -146,6 +146,7 @@ header {
   text-align: right;
 }
 .error_msg {
+  display: block;
   color: red;
   font-size: 13px;
 }

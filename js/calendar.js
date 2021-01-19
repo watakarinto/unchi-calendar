@@ -75,6 +75,10 @@ if(popup_php == "popup") {
     elem.addEventListener("click", function() {
       popup.classList.remove("is_show");
     });
+    // クリックされたら表示にする(スマホ向け)
+    elem.addEventListener("touchstart", function() {
+      popup.classList.remove("is_show");
+    });
   }
   // ポップアップの内容(一番新しいの)を表示
   make_inner(0);

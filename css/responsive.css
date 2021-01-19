@@ -64,18 +64,15 @@
     float: left;
     transition: all 0.5s;
   }
+  /* 登録フォーム */
+  .add_form_in {
+    width: auto;
+    display: inline-block;
+    text-align: right;
+  }
   /* フォームの入力欄 */
   .form_text {
-    width: 55%;
-    margin: 2px;
-    height: 25px;
-    border: solid 0.5px;
-    border-radius: 6px;
-    font-size: 18px;
-    line-height: 1.2;
-    font-weight: 400;
-    display: inline-block;
-    color: #494949;
+    width: 175px;
   }
   /* フッター部分 */
   .footer {
@@ -96,6 +93,9 @@
   }
 
   /* -------------------- カレンダーページ -------------------- */
+  .calendar_table {
+    width: 330px;
+  }
   /* 日付をクリックしたときのポップアップ */
   .popup_inner {
     width: 85%;
