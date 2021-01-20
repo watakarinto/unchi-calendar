@@ -69,14 +69,11 @@ if(popup_php == "popup") {
   let closebutton = document.getElementById("js_close_button");
   closePopUp(blackBg);
   closePopUp(closebutton);
-  // クリックされたら表示にする
+  // クリックされたら非表示にする
   function closePopUp(elem) {
     if(!elem) return;
     elem.addEventListener("click", function() {
-      popup.classList.remove("is_show");
-    });
-    // クリックされたら表示にする(スマホ向け)
-    elem.addEventListener("touchstart", function() {
+      let popup = document.getElementById("js_popup"); // スマホ向けに再読み込み
       popup.classList.remove("is_show");
     });
   }

@@ -210,7 +210,7 @@
       </div>
       <form action="calendar.php" method="post">
         <div class="calendar">
-          <table class="calendar_table">
+          <table>
             <tr><th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
             <?php echo($calendar_html); ?>
           </table>

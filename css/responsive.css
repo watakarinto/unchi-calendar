@@ -1,3 +1,9 @@
+html {
+  /* ダブルタップによるズームを無効にする */
+  touch-action: manipulation;
+}
+
+
 /* タブレット向けレイアウト */
 @media all and (max-width: 1000px) {
   /* -------------------- アカウント設定ページ -------------------- */
@@ -21,7 +27,7 @@
   .character_frame {
     margin-top: auto;
   }
-  /*タブ切り替え全体のスタイル*/
+  /* タブ切り替え全体のスタイル */
   .tabs {
     width: 90%;
   }
@@ -93,12 +99,13 @@
   }
 
   /* -------------------- カレンダーページ -------------------- */
-  .calendar_table {
-    width: 330px;
+  .button_td {
+    width: 40px;
+    padding: 0;
   }
   /* 日付をクリックしたときのポップアップ */
   .popup_inner {
-    width: 85%;
+    width: 80%;
     padding: 10px;
     text-align: center;
   }
